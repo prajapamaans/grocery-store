@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shop authentic Indian spices, produce, and premium groceries on DesiMart. Premium quality directly delivered to you."
+    />
+    <title>DesiMart - Premium Indian Groceries</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans for premium feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              primary: "#FF5A24", // Vibrant Orange/Saffron
+              primaryHover: "#E04A18",
+              brand: "#1E293B", // Slate 800
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .text-gradient {
+        background: linear-gradient(135deg, #ff5a24, #ff8c00);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased selection:bg-primary/20 selection:text-primary"
+  >
+    <!-- Sticky Header -->
+    <header
+      class="fixed top-0 w-full z-50 glass transition-all duration-300"
+      id="main-header"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-2 group">
+            <div
+              class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+            >
+              <i class="ri-shopping-basket-fill text-xl"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight text-brand"
+              >Desi<span class="text-primary">Mart</span></span
+            >
+          </a>
+
+          <!-- Search (Desktop) -->
+          <div class="hidden md:flex flex-1 max-w-xl mx-8 relative">
+            <div
+              class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+            >
+              <i class="ri-search-line text-slate-400"></i>
+            </div>
+            <input
+              type="text"
+              id="global-search"
+              class="block w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-full text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 shadow-sm"
+              placeholder="Search for aromatic spices, fresh produce, lentils... (Press Enter)"
+            />
+          </div>
+
+          <!-- Navigation -->
+          <nav class="flex items-center gap-6">
+            <a
+              href="account.html"
+              class="hidden sm:flex items-center gap-2 text-slate-600 hover:text-primary font-medium transition-colors"
+            >
+              <i class="ri-user-line text-xl"></i> Account
+            </a>
+            <a
+              href="cart.html"
+              class="relative flex items-center gap-2 bg-white px-5 py-2.5 rounded-full border border-slate-200 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
+            >
+              <i
+                class="ri-shopping-cart-2-line text-xl text-slate-600 group-hover:text-primary transition-colors"
+              ></i>
+              <span class="font-semibold text-slate-700">Cart</span>
+              <span
+                id="cart-badge"
+                class="absolute -top-1.5 -right-1.5 bg-primary text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm transform scale-100 transition-transform duration-300"
+                >0</span
+              >
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-24 pb-20">
+      <!-- Hero Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-16">
+        <div
+          class="relative rounded-3xl overflow-hidden bg-brand h-[500px] flex items-center shadow-2xl"
+        >
+          <!-- Background Image -->
+          <img
+            src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=2000"
+            alt="Authentic Indian Spices"
+            class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+          />
+
+          <!-- Gradient Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-brand/90 via-brand/60 to-transparent"
+          ></div>
+
+          <div class="relative z-10 max-w-2xl px-8 sm:px-16">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold mb-6"
+            >
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+                ></span>
+              </span>
+              Same Day Delivery available
+            </div>
+            <h1
+              class="text-5xl sm:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6"
+            >
+              Authentic Flavors, <br />
+              <span class="text-gradient">Delivered Fresh.</span>
+            </h1>
+            <p class="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
+              Experience the finest selection of premium Indian spices,
+              farm-fresh exotic vegetables, and authentic daily essentials
+              straight to your kitchen.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="category.html"
+                class="bg-primary hover:bg-primaryHover text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
+              >
+                Explore Catalog <i class="ri-arrow-right-line"></i>
+              </a>
+              <a
+                href="category.html"
+                class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
+              >
+                Weekly Offers
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-2xl font-bold text-brand mb-1">
+              Explore Categories
+            </h2>
+            <p class="text-slate-500">
+              Find everything you need for your authentic recipes
+            </p>
+          </div>
+          <a
+            href="category.html"
+            class="hidden sm:inline-flex items-center gap-1 text-primary font-semibold hover:gap-2 transition-all"
+          >
+            View All Categories <i class="ri-arrow-right-s-line"></i>
+          </a>
+        </div>
+
+        <div class="flex gap-6 overflow-x-auto pb-6 pt-2 no-scrollbar snap-x">
+          <!-- Category 1 -->
+          <a
+            href="category.html"
+            class="snap-start shrink-0 group flex flex-col items-center gap-4 w-[140px]"
+          >
+            <div
+              class="w-[120px] h-[120px] rounded-full bg-white shadow-sm border border-slate-100 p-2 group-hover:shadow-xl group-hover:border-primary/20 transition-all duration-300 transform group-hover:-translate-y-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=400"
+                alt="Spices"
+                loading="lazy"
+                class="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <span
+              class="font-semibold text-slate-700 text-center group-hover:text-primary transition-colors"
+              >Spices & Masalas</span
+            >
+          </a>
+
+          <!-- Category 2 -->
+          <a
+            href="#"
+            class="snap-start shrink-0 group flex flex-col items-center gap-4 w-[140px]"
+          >
+            <div
+              class="w-[120px] h-[120px] rounded-full bg-white shadow-sm border border-slate-100 p-2 group-hover:shadow-xl group-hover:border-primary/20 transition-all duration-300 transform group-hover:-translate-y-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1588145025997-cdddc3830fd7?auto=format&fit=crop&q=80&w=400"
+                alt="Fresh Produce"
+                loading="lazy"
+                class="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <span
+              class="font-semibold text-slate-700 text-center group-hover:text-primary transition-colors"
+              >Fresh Produce</span
+            >
+          </a>
+
+          <!-- Category 3 -->
+          <a
+            href="#"
+            class="snap-start shrink-0 group flex flex-col items-center gap-4 w-[140px]"
+          >
+            <div
+              class="w-[120px] h-[120px] rounded-full bg-white shadow-sm border border-slate-100 p-2 group-hover:shadow-xl group-hover:border-primary/20 transition-all duration-300 transform group-hover:-translate-y-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=400"
+                alt="Snacks"
+                loading="lazy"
+                class="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <span
+              class="font-semibold text-slate-700 text-center group-hover:text-primary transition-colors"
+              >Snacks & Sweets</span
+            >
+          </a>
+
+          <!-- Category 4 -->
+          <a
+            href="#"
+            class="snap-start shrink-0 group flex flex-col items-center gap-4 w-[140px]"
+          >
+            <div
+              class="w-[120px] h-[120px] rounded-full bg-white shadow-sm border border-slate-100 p-2 group-hover:shadow-xl group-hover:border-primary/20 transition-all duration-300 transform group-hover:-translate-y-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1515543904379-3d149021d7b3?auto=format&fit=crop&q=80&w=400"
+                alt="Lentils"
+                loading="lazy"
+                class="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <span
+              class="font-semibold text-slate-700 text-center group-hover:text-primary transition-colors"
+              >Lentils & Beans</span
+            >
+          </a>
+
+          <!-- Category 5 -->
+          <a
+            href="#"
+            class="snap-start shrink-0 group flex flex-col items-center gap-4 w-[140px]"
+          >
+            <div
+              class="w-[120px] h-[120px] rounded-full bg-white shadow-sm border border-slate-100 p-2 group-hover:shadow-xl group-hover:border-primary/20 transition-all duration-300 transform group-hover:-translate-y-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=400"
+                alt="Flours"
+                loading="lazy"
+                class="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <span
+              class="font-semibold text-slate-700 text-center group-hover:text-primary transition-colors"
+              >Atta & Flours</span
+            >
+          </a>
+
+          <!-- Category 6 -->
+          <a
+            href="#"
+            class="snap-start shrink-0 group flex flex-col items-center gap-4 w-[140px]"
+          >
+            <div
+              class="w-[120px] h-[120px] rounded-full bg-white shadow-sm border border-slate-100 p-2 flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100 group-hover:shadow-xl group-hover:border-primary/20 transition-all duration-300 transform group-hover:-translate-y-2"
+            >
+              <i class="ri-leaf-line text-4xl text-green-600"></i>
+            </div>
+            <span
+              class="font-semibold text-slate-700 text-center group-hover:text-primary transition-colors"
+              >Ayurvedic</span
+            >
+          </a>
+        </div>
+      </section>
+
+      <!-- Trending Products Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-2xl font-bold text-brand mb-1">
+              Trending This Week
+            </h2>
+            <p class="text-slate-500">Our most popular premium selection</p>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          id="product-container"
+        >
+          <!-- Products will be injected via JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="bg-brand text-slate-300 py-16 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div class="col-span-1 md:col-span-2 text-left">
+            <a href="#" class="flex items-center gap-2 mb-6">
+              <div
+                class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white"
+              >
+                <i class="ri-shopping-basket-fill text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold tracking-tight text-white"
+                >Desi<span class="text-primary">Mart</span></span
+              >
+            </a>
+            <p class="text-slate-400 max-w-sm leading-relaxed mb-6">
+              Your ultimate destination for authentic, premium-quality Indian
+              groceries. Delivering the pure taste of home to your doorstep,
+              every single day.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                ><i class="ri-instagram-line"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                ><i class="ri-facebook-fill"></i
+              ></a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                ><i class="ri-twitter-x-line"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold text-lg mb-6">Quick Links</h3>
+            <ul class="space-y-4">
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Shop All Categories</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Fresh Arrivals</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Weekly Offers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold text-lg mb-6">Support</h3>
+            <ul class="space-y-4">
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Shipping Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Returns & Refunds</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Track Order</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-slate-500 text-sm">
+            © 2026 DesiMart Demo. All rights reserved.
+          </p>
+          <div class="flex gap-4 text-slate-500 text-sm">
+            <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const globalSearch = document.getElementById("global-search");
+        if (globalSearch) {
+          globalSearch.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              window.location.href = `category.html?search=${encodeURIComponent(e.target.value)}`;
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

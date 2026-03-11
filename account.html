@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage your DesiMart Premium account, view recent orders, and update your saved addresses."
+    />
+    <title>My Account - DesiMart Premium</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              primary: "#FF5A24",
+              primaryHover: "#E04A18",
+              brand: "#1E293B",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col"
+  >
+    <header
+      class="fixed top-0 w-full z-50 glass transition-all duration-300 shadow-sm"
+      id="main-header"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div
+              class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+            >
+              <i class="ri-shopping-basket-fill text-xl"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight text-brand"
+              >Desi<span class="text-primary">Mart</span></span
+            >
+          </a>
+
+          <div class="hidden md:flex flex-1 max-w-xl mx-8 relative">
+            <div
+              class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+            >
+              <i class="ri-search-line text-slate-400"></i>
+            </div>
+            <input
+              type="text"
+              id="global-search"
+              class="block w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-full text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 shadow-sm"
+              placeholder="Search for aromatic spices, fresh produce, lentils... (Press enter)"
+            />
+          </div>
+
+          <nav class="flex items-center gap-6">
+            <a
+              href="account.html"
+              class="hidden sm:flex items-center gap-2 text-primary font-bold transition-colors"
+            >
+              <img
+                src="https://ui-avatars.com/api/?name=John+Doe&background=FF5A24&color=fff&rounded=true&bold=true"
+                alt="Profile"
+                loading="lazy"
+                class="w-8 h-8 rounded-full border-2 border-primary/20 object-cover"
+              />
+              Hi, John
+            </a>
+            <a
+              href="cart.html"
+              class="relative flex items-center gap-2 bg-white px-5 py-2.5 rounded-full border border-slate-200 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
+            >
+              <i
+                class="ri-shopping-cart-2-line text-xl text-slate-600 group-hover:text-primary transition-colors"
+              ></i>
+              <span class="font-semibold text-slate-700 hidden lg:inline"
+                >Cart</span
+              >
+              <span
+                id="cart-badge"
+                class="absolute -top-1.5 -right-1.5 bg-primary text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm transform scale-100 transition-transform duration-300"
+                >0</span
+              >
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20 flex-1">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-extrabold text-brand mb-8">My Account</h1>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Sidebar -->
+          <div class="w-full lg:w-1/4">
+            <div
+              class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden sticky top-32"
+            >
+              <!-- User Card -->
+              <div
+                class="p-6 text-center border-b border-slate-100 bg-slate-50 relative"
+              >
+                <i
+                  class="ri-store-2-line absolute top-4 left-4 text-4xl text-primary/10"
+                ></i>
+                <img
+                  src="https://ui-avatars.com/api/?name=John+Doe&background=FF5A24&color=fff&rounded=true&bold=true&size=128"
+                  alt="Profile Large"
+                  loading="lazy"
+                  class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-sm object-cover"
+                />
+                <h2 class="font-bold text-lg text-brand">John Doe</h2>
+                <p class="text-sm text-slate-500 font-medium">
+                  john.doe@example.com
+                </p>
+              </div>
+
+              <!-- Nav Menu -->
+              <nav class="flex flex-col py-4">
+                <a
+                  href="#"
+                  class="flex items-center gap-3 px-6 py-3 text-primary bg-primary/5 font-bold border-r-4 border-primary"
+                >
+                  <i class="ri-dashboard-line text-lg"></i> Dashboard
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-3 px-6 py-3 text-slate-600 font-medium hover:bg-slate-50 hover:text-brand transition-colors"
+                >
+                  <i class="ri-shopping-bag-3-line text-lg"></i> Orders
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-3 px-6 py-3 text-slate-600 font-medium hover:bg-slate-50 hover:text-brand transition-colors"
+                >
+                  <i class="ri-map-pin-line text-lg"></i> Addresses
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-3 px-6 py-3 text-slate-600 font-medium hover:bg-slate-50 hover:text-brand transition-colors"
+                >
+                  <i class="ri-bank-card-line text-lg"></i> Payment Methods
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center gap-3 px-6 py-3 text-red-500 font-medium hover:bg-red-50 transition-colors mt-4"
+                >
+                  <i class="ri-logout-box-r-line text-lg"></i> Log Out
+                </a>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="w-full lg:w-3/4 space-y-8">
+            <!-- Stats / Mini Dashboard -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div
+                class="bg-gradient-to-br from-primary to-orange-400 rounded-3xl p-6 text-white shadow-lg shadow-primary/20 relative overflow-hidden"
+              >
+                <i
+                  class="ri-shopping-bag-3-line absolute -right-4 -bottom-4 text-8xl text-white/20"
+                ></i>
+                <h3 class="font-medium text-white/80 mb-1">Total Orders</h3>
+                <div class="text-4xl font-extrabold">24</div>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/30 transition-colors cursor-pointer"
+              >
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-500 text-2xl mb-4 group-hover:scale-110 transition-transform"
+                >
+                  <i class="ri-map-pin-user-fill"></i>
+                </div>
+                <h3 class="font-medium text-slate-500 mb-1">Saved Addresses</h3>
+                <div class="text-2xl font-bold text-brand">2 Locations</div>
+              </div>
+              <div
+                class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-primary/30 transition-colors cursor-pointer"
+              >
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-500 text-2xl mb-4 group-hover:scale-110 transition-transform"
+                >
+                  <i class="ri-copper-coin-fill"></i>
+                </div>
+                <h3 class="font-medium text-slate-500 mb-1">
+                  DesiMart Rewards
+                </h3>
+                <div class="text-2xl font-bold text-brand">1,450 pts</div>
+              </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div
+              class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden"
+            >
+              <div
+                class="p-6 sm:p-8 border-b border-slate-100 flex items-center justify-between"
+              >
+                <h2 class="text-xl font-bold text-brand">Recent Orders</h2>
+                <a
+                  href="#"
+                  class="text-primary font-bold text-sm hover:underline"
+                  >View All</a
+                >
+              </div>
+
+              <div class="divide-y divide-slate-100">
+                <!-- Order Item 1 -->
+                <div
+                  class="p-6 sm:p-8 flex flex-col md:flex-row gap-6 md:items-center justify-between hover:bg-slate-50/50 transition-colors"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="flex -space-x-3">
+                      <div
+                        class="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                          alt="Spices"
+                          loading="lazy"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div
+                        class="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                          alt="Lentils"
+                          loading="lazy"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div
+                        class="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500"
+                      >
+                        +3
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm text-slate-500 font-medium mb-1">
+                        Order #UK-2026-8921
+                      </div>
+                      <div class="font-bold text-brand">5 Items • £34.50</div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto"
+                  >
+                    <div class="text-sm">
+                      <div class="text-slate-500 mb-1">Status</div>
+                      <span
+                        class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-bold"
+                      >
+                        <span
+                          class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"
+                        ></span>
+                        In Transit
+                      </span>
+                    </div>
+                    <button
+                      class="bg-white border border-slate-200 text-brand font-bold py-2 px-6 rounded-xl text-sm shadow-sm hover:border-primary hover:text-primary transition-colors"
+                    >
+                      Track
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Order Item 2 -->
+                <div
+                  class="p-6 sm:p-8 flex flex-col md:flex-row gap-6 md:items-center justify-between hover:bg-slate-50/50 transition-colors"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="flex -space-x-3">
+                      <div
+                        class="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1588145025997-cdddc3830fd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                          alt="Fresh Produce"
+                          loading="lazy"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div
+                        class="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-white"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                          alt="Snacks"
+                          loading="lazy"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm text-slate-500 font-medium mb-1">
+                        Order #UK-2026-8804
+                      </div>
+                      <div class="font-bold text-brand">2 Items • £12.20</div>
+                      <span class="text-xs text-slate-400 block mt-1"
+                        >Feb 28, 2026</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto"
+                  >
+                    <div class="text-sm">
+                      <div class="text-slate-500 mb-1">Status</div>
+                      <span
+                        class="inline-flex items-center gap-1.5 bg-green-50 text-green-600 px-3 py-1 rounded-full text-xs font-bold"
+                      >
+                        <i class="ri-check-line"></i> Delivered
+                      </span>
+                    </div>
+                    <button
+                      class="bg-white border border-slate-200 text-brand font-bold py-2 px-6 rounded-xl text-sm shadow-sm hover:bg-slate-50 transition-colors"
+                    >
+                      Reorder
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Addresses -->
+            <div
+              class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm relative overflow-hidden"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-brand">Saved Addresses</h2>
+                <button
+                  class="text-primary hover:bg-primary/10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+                >
+                  <i class="ri-add-line text-2xl"></i>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Address 1 -->
+                <div
+                  class="border border-primary bg-primary/5 rounded-2xl p-5 relative"
+                >
+                  <span
+                    class="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 border border-primary/20 text-primary rounded-md shadow-sm"
+                    >Default</span
+                  >
+                  <h3 class="font-bold text-brand mb-1">Home</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                    John Doe<br />
+                    123 Baker Street, Apt 4B<br />
+                    London, NW1 6XE<br />
+                    United Kingdom
+                  </p>
+                  <div
+                    class="flex gap-4 text-sm font-bold opacity-0 transition-opacity translate-y-2"
+                    style="animation: fadeUp 0.3s ease forwards"
+                  >
+                    <button class="text-primary hover:underline">Edit</button>
+                    <button
+                      class="text-slate-400 hover:text-red-500 transition-colors"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Address 2 -->
+                <div
+                  class="border border-slate-200 hover:border-slate-300 rounded-2xl p-5 relative transition-colors group"
+                >
+                  <h3 class="font-bold text-brand mb-1">Office</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                    John Doe<br />
+                    45 Canary Wharf, Level 12<br />
+                    London, E14 5AB<br />
+                    United Kingdom
+                  </p>
+                  <div
+                    class="flex gap-4 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <button
+                      class="text-brand hover:text-primary transition-colors"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      class="text-brand hover:text-primary transition-colors"
+                    >
+                      Set as Default
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="bg-brand text-slate-300 py-12 border-t border-slate-800 mt-auto"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center pb-6">
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white"
+          >Desi<span class="text-primary">Mart</span></span
+        >
+        <p class="text-slate-500 text-sm mt-2">
+          © 2026 DesiMart Demo. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Search logic
+        const globalSearch = document.getElementById("global-search");
+        if (globalSearch) {
+          globalSearch.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              window.location.href = `category.html?search=${encodeURIComponent(e.target.value)}`;
+            }
+          });
+        }
+      });
+
+      // Keyframes injection for animation
+      const style = document.createElement("style");
+      style.innerHTML = `
+            @keyframes fadeUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>

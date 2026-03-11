@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browse authentic Indian groceries by category. Shop premium spices, fresh produce, snacks, and more." />
+    <title>Products - DesiMart Premium</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            colors: {
+              primary: "#FF5A24",
+              primaryHover: "#E04A18",
+              brand: "#1E293B",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #ff5a24, #ff8c00);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased selection:bg-primary/20 selection:text-primary"
+  >
+    <!-- Sticky Header -->
+    <header
+      class="fixed top-0 w-full z-50 glass transition-all duration-300"
+      id="main-header"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <div
+              class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+            >
+              <i class="ri-shopping-basket-fill text-xl"></i>
+            </div>
+            <span class="text-2xl font-bold tracking-tight text-brand"
+              >Desi<span class="text-primary">Mart</span></span
+            >
+          </a>
+
+                <div class="hidden md:flex flex-1 max-w-xl mx-8 relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="ri-search-line text-slate-400"></i>
+                    </div>
+                    <input type="text" id="global-search" class="block w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-full text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 shadow-sm" placeholder="Search for aromatic spices, fresh produce, lentils... (Press enter)">
+                </div>
+          </div>
+
+          <nav class="flex items-center gap-6">
+            <a
+              href="account.html"
+              class="hidden sm:flex items-center gap-2 text-slate-600 hover:text-primary font-medium transition-colors"
+            >
+              <i class="ri-user-line text-xl"></i> Account
+            </a>
+            <a
+              href="cart.html"
+              class="relative flex items-center gap-2 bg-white px-5 py-2.5 rounded-full border border-slate-200 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
+            >
+              <i
+                class="ri-shopping-cart-2-line text-xl text-slate-600 group-hover:text-primary transition-colors"
+              ></i>
+              <span class="font-semibold text-slate-700">Cart</span>
+              <span
+                id="cart-badge"
+                class="absolute -top-1.5 -right-1.5 bg-primary text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm transform scale-100 transition-transform duration-300"
+                >0</span
+              >
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-28 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+          <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+              <a href="index.html" class="hover:text-primary transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <div class="flex items-center">
+                <i class="ri-arrow-right-s-line text-lg mx-1"></i>
+                <span class="text-brand font-medium">All Products</span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Sidebar Filters -->
+          <aside class="w-full lg:w-64 shrink-0 hidden lg:block">
+            <div
+              class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm sticky top-28"
+            >
+                          <h3 class="font-bold text-lg text-brand mb-4">Categories</h3>
+                        <ul class="space-y-3 mb-8">
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Spices & Masalas" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Spices & Masalas</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Snacks & Sweets" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Snacks & Sweets</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Fresh Produce" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Fresh Produce</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Lentils & Beans" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Lentils & Beans</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Atta & Flours" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Atta & Flours</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Ayurvedic" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Ayurvedic</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Beverages" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Beverages</span></label></li>
+                            <li><label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="Dairy & Bakery" class="cat-filter w-4 h-4 text-primary rounded border-slate-300 focus:ring-primary"><span class="text-slate-600 font-medium text-sm hover:text-primary transition-colors">Dairy & Bakery</span></label></li>
+                        </ul>
+
+                        <h3 class="font-bold text-lg text-brand mb-4">Price Range</h3>
+                        <div class="space-y-4">
+                            <input type="range" id="price-slider" min="1" max="25" value="25" class="w-full accent-primary">
+                            <div class="flex items-center justify-between text-sm text-slate-500 font-medium">
+                                <span>£0</span>
+                                <span id="price-label">Up to £25+</span>
+                            </div>
+                        </div>
+
+              <button
+                class="w-full mt-8 bg-brand text-white py-3 rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+              >
+                Apply Filters
+              </button>
+            </div>
+          </aside>
+
+                <!-- Product Grid -->
+                <div class="flex-1">
+                    <div class="flex items-center justify-between mb-6">
+                        <h1 class="text-3xl font-extrabold text-brand" id="category-title">All Products</h1>
+                        <span class="text-slate-400 text-lg font-medium tracking-normal ml-2 whitespace-nowrap hidden sm:block" id="product-count-label"></span>
+                    </div>
+                    <div class="flex sm:justify-end mb-6 w-full">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm text-slate-500 font-medium">Sort by:</span>
+                            <select id="sort-select" class="bg-white border border-slate-200 rounded-lg px-4 py-2 text-sm font-medium text-brand focus:ring-primary focus:border-primary outline-none cursor-pointer">
+                                <option value="Recommended">Recommended</option>
+                                <option value="Price: Low to High">Price: Low to High</option>
+                                <option value="Price: High to Low">Price: High to Low</option>
+                                <option value="Newest Arrivals">Newest Arrivals</option>
+                            </select>
+                        </div>
+                    </div>
+
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="category-product-container"
+            >
+              <!-- Filled by JS -->
+            </div>
+
+            <div class="mt-12 flex justify-center">
+              <button
+                class="bg-white border border-slate-200 text-brand px-8 py-3 rounded-full font-semibold hover:border-primary hover:text-primary transition-all shadow-sm"
+              >
+                Load More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Premium Footer (Simplified for brevity) -->
+    <footer
+      class="bg-brand text-slate-300 py-12 border-t border-slate-800 mt-20"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <a
+          href="index.html"
+          class="flex items-center justify-center md:justify-start gap-2"
+        >
+          <div
+            class="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-xl flex items-center justify-center text-white"
+          >
+            <i class="ri-shopping-basket-fill text-lg md:text-xl"></i>
+          </div>
+          <span class="text-xl md:text-2xl font-bold tracking-tight text-white"
+            >Desi<span class="text-primary">Mart</span></span
+          >
+        </a>
+        <p class="text-slate-500 text-sm">
+          © 2026 DesiMart Demo. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('category-product-container');
+            const categoryCheckboxes = document.querySelectorAll('.cat-filter');
+            const maxPriceSlider = document.getElementById('price-slider');
+            const maxPriceLabel = document.getElementById('price-label');
+            const sortSelect = document.getElementById('sort-select');
+            const searchInput = document.getElementById('global-search');
+            
+            // Check url for search params
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialSearch = urlParams.get('search') || '';
+            if(initialSearch && searchInput) searchInput.value = initialSearch;
+            
+            let currentSearch = initialSearch;
+
+            function renderProducts() {
+                // Determine active filters
+                const activeCategories = Array.from(categoryCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+                
+                const maxPrice = parseFloat(maxPriceSlider.value);
+                const sortOption = sortSelect.value;
+                
+                // Fetch and filter
+                let baseResults = window.searchProducts(currentSearch);
+                let finalResults = window.filterAndSortProducts(baseResults, activeCategories, sortOption, maxPrice);
+                
+                // Render UI
+                document.getElementById('product-count-label').textContent = `${finalResults.length} items`;
+                document.getElementById('category-title').textContent = currentSearch ? `Search: "${currentSearch}"` : 'All Products';
+                
+                container.innerHTML = '';
+                
+                if(finalResults.length === 0) {
+                    container.innerHTML = `<div class="col-span-full py-12 text-center text-slate-500 font-medium whitespace-nowrap overflow-hidden">No products found matching your criteria.</div>`;
+                    return;
+                }
+
+                finalResults.forEach((prod) => {
+                    const card = document.createElement('div');
+                    card.className = "group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col overflow-hidden";
+                    
+                    card.innerHTML = `
+                        <div class="relative h-56 bg-slate-50 flex items-center justify-center p-6 overflow-hidden cursor-pointer" onclick="window.location.href='product.html?id=${prod.id}'">
+                            ${prod.tag ? `<span class="absolute top-4 left-4 ${prod.tagColor} text-white px-3 py-1 text-xs font-bold rounded-full z-10 shadow-sm">${prod.tag}</span>` : ''}
+                            <img src="${prod.image}" alt="${prod.title}" loading="lazy" class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500 mix-blend-multiply">
+                        </div>
+                        
+                        <div class="p-5 flex flex-col flex-1">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">${prod.vendor}</span>
+                            <h3 class="text-slate-800 font-semibold leading-snug mb-4 line-clamp-2 hover:text-primary transition-colors cursor-pointer" onclick="window.location.href='product.html?id=${prod.id}'">${prod.title}</h3>
+                            
+                            <div class="mt-auto flex items-center justify-between">
+                                <div>
+                                    <span class="text-xl font-extrabold text-brand">${prod.price}</span>
+                                    ${prod.oldPrice ? `<span class="text-sm text-slate-400 line-through ml-2 font-medium">${prod.oldPrice}</span>` : ''}
+                                </div>
+                                <button class="add-btn h-10 w-10 lg:w-auto lg:px-4 rounded-xl bg-slate-100 text-brand font-semibold hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-1 group-hover:shadow-md" data-id="${prod.id}">
+                                    <i class="ri-add-line text-lg"></i>
+                                    <span class="hidden lg:block">Add</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+                
+                window.bindCartButtons(); // rebind dynamically created buttons
+            }
+
+            // Bind Event Listeners
+            categoryCheckboxes.forEach(cb => cb.addEventListener('change', renderProducts));
+            sortSelect.addEventListener('change', renderProducts);
+            
+            maxPriceSlider.addEventListener('input', (e) => {
+                maxPriceLabel.textContent = `Up to £${e.target.value}`;
+            });
+            maxPriceSlider.addEventListener('change', renderProducts);
+
+            if(searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if(e.key === 'Enter') {
+                        currentSearch = e.target.value;
+                        renderProducts();
+                    }
+                });
+            }
+
+            // Initial Render
+            renderProducts();
+        });
+    </script>
+</body>
+</html>
